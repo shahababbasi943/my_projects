@@ -49,6 +49,8 @@ body {
     color: var(--dark-color);
 }
 
+
+
 .hero-content p {
     font-size: 1.3rem;
     color: var(--primary-color);
@@ -69,7 +71,7 @@ body {
     60% {transform: translateY(-10px);}
 }
 
-/* بخش اصلی */
+/* بخش اصلی ویدیو - تغییرات اصلی اینجاست */
 .main-content {
     padding: 0 2rem 4rem;
 }
@@ -106,6 +108,7 @@ body {
     border: none;
 }
 
+/* تغییرات اصلی برای حل مشکل pause */
 .play-overlay {
     position: absolute;
     top: 50%;
@@ -116,11 +119,37 @@ body {
     opacity: 0.8;
     transition: all 0.3s ease;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 1;
 }
 
-.video-wrapper:hover .play-overlay {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
+/* فقط آیکون play را نمایش بده */
+.play-overlay .fa-pause {
+    display: none;
+}
+
+.play-overlay .fa-play {
+    display: block;
+}
+
+/* مخفی کردن آیکون play هنگام پخش ویدیو */
+.video-wrapper video:playing + .play-overlay {
+    opacity: 0;
+}
+
+/* نمایش آیکون play هنگام توقف ویدیو */
+.video-wrapper video:paused + .play-overlay {
+    opacity: 0.8;
+}
+
+/* حذف pause بزرگ مرورگر (نه کنترل‌های پایین) */
+video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+}
+
+/* نگه داشتن کنترل‌های پیش‌فرض پایین ویدیو */
+video::-webkit-media-controls {
+    display: flex !important;
 }
 
 .video-details {

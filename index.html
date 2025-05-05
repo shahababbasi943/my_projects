@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نمونه کار Power BI | شهاب عباسی</title>
-    <meta name="description" content="نمونه کار حرفه‌ای Power BI - شهاب عباسی">
+    <title>نمونه کار Power BI | حسین عباسی</title>
+    <meta name="description" content="نمونه کار حرفه‌ای Power BI - حسین عباسی">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -25,8 +25,8 @@
             <section class="dashboard-showcase">
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <video controls poster="assets/thumbnails/dashboard-thumbnail.jpg">
-                            <source src="assets/videos/powerbi-dashboard.mp4" type="video/mp4">
+                        <video controls poster="power-bi-microsoft-seeklogo.png">
+                            <source src="bank.mp4" type="video/mp4">
                             مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                         </video>
                         <div class="play-overlay">
@@ -34,8 +34,8 @@
                         </div>
                     </div>
                     <div class="video-details">
-                        <h2>داشبورد تحلیل فروش</h2>
-                        <p class="video-description">نمایش کامل قابلیت‌های Power BI در تحلیل داده‌های فروش با ویژوال‌های تعاملی</p>
+                        <h2>داشبورد تحلیل اموال وتسهیلات بانک های ایران در سال 1402</h2>
+                        <p class="video-description">داده های این پروژه از ییش از 200 فایل اکسل که از سایت بانک مرکزی دریافت شده خوانده شده است</p>
                         <div class="tech-tags">
                             <span>Power Query</span>
                             <span>DAX</span>
@@ -70,5 +70,32 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>
+        document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+            const video = wrapper.querySelector('video');
+            const overlay = wrapper.querySelector('.play-overlay');
+        
+            // وقتی روی ویدیو کلیک شد، پخش یا توقف
+            wrapper.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        
+            // وقتی ویدیو پخش شد
+            video.addEventListener('play', () => {
+                overlay.style.opacity = '0';
+            });
+        
+            // وقتی ویدیو متوقف شد
+            video.addEventListener('pause', () => {
+                overlay.style.opacity = '0.8';
+            });
+        });
+        </script>
+        
 </body>
 </html>
